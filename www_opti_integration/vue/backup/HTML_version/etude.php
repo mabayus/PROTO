@@ -1,0 +1,978 @@
+﻿<!DOCTYPE html>
+<html lang="fr-fr">
+	<head>
+		<meta charset="utf-8">
+		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+
+		<title> Tableau de bord </title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+			
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Basic Styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
+
+		<!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.min.css">
+
+		<!-- SmartAdmin RTL Support is under construction
+			 This RTL CSS will be released in version 1.5
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.min.css"> -->
+
+		<!-- We recommend you use "your_style.css" to override SmartAdmin
+		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
+		<link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
+
+		<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/demo.min.css">
+
+		<!-- FAVICONS -->
+		<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+
+		<!-- GOOGLE FONT -->
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+
+		<!-- Specifying a Webpage Icon for Web Clip 
+			 Ref: https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
+		<link rel="apple-touch-icon" href="img/splash/sptouch-icon-iphone.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="img/splash/touch-icon-ipad.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="img/splash/touch-icon-iphone-retina.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="img/splash/touch-icon-ipad-retina.png">
+		
+		<!-- iOS web-app metas : hides Safari UI Components and Changes Status Bar Appearance -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<!-- Startup image for web apps -->
+		<link rel="apple-touch-startup-image" href="img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+		<link rel="apple-touch-startup-image" href="img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+		<link rel="apple-touch-startup-image" href="img/splash/iphone.png" media="screen and (max-device-width: 320px)">
+
+		<!-- Code mirror -->
+<link rel=stylesheet href="CodeMirror/lib/codemirror.css">
+<script src="CodeMirror/lib/codemirror.js"></script>
+<script src="CodeMirror/mode/xml/xml.js"></script>
+<script src="CodeMirror/mode/javascript/javascript.js"></script>
+<script src="CodeMirror/mode/css/css.js"></script>
+<script src="CodeMirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="CodeMirror/addon/edit/matchbrackets.js"></script>
+
+<script src="CodeMirror/doc/activebookmark.js"></script>
+
+<style>
+  .CodeMirror { height: 180px; border: 1px solid #ddd; }
+  .CodeMirror-scroll { max-height: 200px; }
+  .CodeMirror pre { padding-left: 7px; line-height: 1.25; }
+</style>
+<!-- Code mirror -->
+
+	</head>
+	<body class="row-fluid">
+		<!-- possible classes: minified, fixed-ribbon, fixed-header, fixed-width-->
+
+		<!-- HEADER -->
+		<header id="header">
+			<div id="logo-group">
+
+				<!-- PLACE YOUR LOGO HERE -->
+				<span id="logo"> <img src="img/Logo_SystemX.png" alt="IRT-SystemX"> </span>
+				<!-- END LOGO PLACEHOLDER -->
+
+				<!-- Note: The activity badge color changes when clicked and resets the number to 0
+				Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
+				<span id="activity" class="activity-dropdown"> <i class="fa fa-user"></i> <b class="badge"> 21 </b> </span>
+
+				<!-- AJAX-DROPDOWN : control this dropdown height, look and feel from the LESS variable file -->
+				<div class="ajax-dropdown">
+
+					<!-- the ID links are fetched via AJAX to the ajax container "ajax-notifications" -->
+					<div class="btn-group btn-group-justified" data-toggle="buttons">
+						<label class="btn btn-default">
+							<input type="radio" name="activity" id="ajax/notify/mail.html">
+							Msgs (14) </label>
+						<label class="btn btn-default">
+							<input type="radio" name="activity" id="ajax/notify/notifications.html">
+							notify (3) </label>
+						<label class="btn btn-default">
+							<input type="radio" name="activity" id="ajax/notify/tasks.html">
+							Tasks (4) </label>
+					</div>
+
+					<!-- notification content -->
+					<div class="ajax-notifications custom-scroll">
+
+						<div class="alert alert-transparent">
+							<h4>Click a button to show messages here</h4>
+							This blank page message helps protect your privacy, or you can show the first message here automatically.
+						</div>
+
+						<i class="fa fa-lock fa-4x fa-border"></i>
+
+					</div>
+					<!-- end notification content -->
+
+					<!-- footer: refresh area -->
+					<span> Last updated on: 12/12/2013 9:43AM
+						<button type="button" data-loading-text="<i class='fa fa-refresh fa-spin'></i> Loading..." class="btn btn-xs btn-default pull-right">
+							<i class="fa fa-refresh"></i>
+						</button> 
+					</span>
+					<!-- end footer -->
+
+				</div>
+				<!-- END AJAX-DROPDOWN -->
+			</div>
+
+			<!-- projects dropdown -->
+			<div class="project-context hidden-xs">
+
+				<span class="label">Projets:</span>
+				<span class="project-selector dropdown-toggle" data-toggle="dropdown"> Projects récents<i class="fa fa-angle-down"></i></span>
+
+				<!-- Suggestion: populate this list with fetch and push technique -->
+				<ul class="dropdown-menu">
+					<li>
+						<a href="javascript:void(0);">Online e-merchant management system - attaching integration with the iOS</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Notes on pipeline upgradee</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Assesment Report for merchant account</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="javascript:void(0);"><i class="fa fa-power-off"></i> Clear</a>
+					</li>
+				</ul>
+				<!-- end dropdown-menu-->
+
+			</div>
+			<!-- end projects dropdown -->
+
+			<!-- pulled right: nav area -->
+			<div class="pull-right">
+				
+				<!-- collapse menu button -->
+				<div id="hide-menu" class="btn-header pull-right">
+					<span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
+				</div>
+				<!-- end collapse menu -->
+				
+				<!-- #MOBILE -->
+				<!-- Top menu profile link : this shows only when top menu is active -->
+				<ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
+					<li class="">
+						<a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown"> 
+							<img src="img/avatars/sunny.png" alt="John Doe" class="online" />  
+						</a>
+						<ul class="dropdown-menu pull-right">
+							<li>
+								<a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0"><i class="fa fa-cog"></i> Setting</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="profile.html" class="padding-10 padding-top-0 padding-bottom-0"> <i class="fa fa-user"></i> <u>P</u>rofile</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="toggleShortcut"><i class="fa fa-arrow-down"></i> <u>S</u>hortcut</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i> Full <u>S</u>creen</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="login.html" class="padding-10 padding-top-5 padding-bottom-5" data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i> <strong><u>L</u>ogout</strong></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<!-- logout button -->
+				<div id="logout" class="btn-header transparent pull-right">
+					<span> <a href="login.html" title="Sign Out" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
+				</div>
+				<!-- end logout button -->
+
+				<!-- search mobile button (this is hidden till mobile view port) -->
+				<div id="search-mobile" class="btn-header transparent pull-right">
+					<span> <a href="javascript:void(0)" title="Search"><i class="fa fa-search"></i></a> </span>
+				</div>
+				<!-- end search mobile button -->
+
+				<!-- input: search field -->
+				<form action="search.html" class="header-search pull-right">
+					<input id="search-fld"  type="text" name="param" placeholder="Rechercher" data-autocomplete='[
+					"ActionScript",
+					"AppleScript",
+					"Asp",
+					"BASIC",
+					"C",
+					"C++",
+					"Clojure",
+					"COBOL",
+					"ColdFusion",
+					"Erlang",
+					"Fortran",
+					"Groovy",
+					"Haskell",
+					"Java",
+					"JavaScript",
+					"Lisp",
+					"Perl",
+					"PHP",
+					"Python",
+					"Ruby",
+					"Scala",
+					"Scheme"]'>
+					<button type="submit">
+						<i class="fa fa-search"></i>
+					</button>
+					<a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
+				</form>
+				<!-- end input: search field -->
+
+				<!-- fullscreen button -->
+				<div id="fullscreen" class="btn-header transparent pull-right">
+					<span> <a href="javascript:void(0);" data-action="launchFullscreen" title="Full Screen"><i class="fa fa-arrows-alt"></i></a> </span>
+				</div>
+				<!-- end fullscreen button -->
+
+				<!-- multiple lang dropdown : find all flags in the flags page -->
+				<ul class="header-dropdown-list hidden-xs">
+					<li>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="img/blank.gif" class="flag flag-fr" alt="Français"> <span> FR </span> <i class="fa fa-angle-down"></i> </a>
+						<ul class="dropdown-menu pull-right">
+							<li class="active">
+								<a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-fr" alt="United States"> FR</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-us" alt="Spanish"> US</a>
+							</li>
+							
+						</ul>
+					</li>
+				</ul>
+				<!-- end multiple lang -->
+
+			</div>
+			<!-- end pulled right: nav area -->
+
+		</header>
+		<!-- END HEADER -->
+
+		<!-- Left panel : Navigation area -->
+		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
+		<aside id="left-panel">
+
+			<!-- User info -->
+			<div class="login-info">
+				<span> <!-- User image size is adjusted inside CSS, it should stay as it --> 
+					
+					<a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
+						<img src="img/avatars/Mustapha.JPG" alt="me" class="online" /> 
+						<span>
+							Mustapha KHEMAR 
+						</span>
+						<i class="fa fa-angle-down"></i>
+					</a> 
+					
+				</span>
+			</div>
+			<!-- end user info -->
+
+			<!-- NAVIGATION : This navigation is also responsive
+
+			To make this navigation dynamic please make sure to link the node
+			(the reference to the nav > ul) after page load. Or the navigation
+			will not initialize.
+			-->
+			<nav>
+				<!-- NOTE: Notice the gaps after each icon usage <i></i>..
+				Please note that these links work a bit different than
+				traditional href="" links. See documentation for details.
+				-->
+
+				<ul>
+					<li>
+						<a href="index.html" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Tableau de bord</span></a>
+					</li>
+					<li>
+						<a href="inbox.html"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Etude 1</span><span class="badge pull-right inbox-badge">1</span></a>
+					</li>
+		
+					<li class="active">
+						<a href="#"><i class="fa fa-lg fa-fw fa-windows"></i> <span class="menu-item-parent">Clauses</span></a>
+						<ul>
+							
+							<li>
+								<a href="pricing-table.html"><i class="fa fa-lg fa-fw fa-file"></i>Initialisation</a>
+							</li>
+							
+							<!------------------------------------------------------------------------>
+							<li>
+								<a href="pricing-table.html"><i class="fa fa-lg fa-fw fa-file"></i>Stop</a>
+							</li>
+							<!------------------------------------------------------------------------>
+							<li>
+								<a href="#"><i class="fa fa-fw fa-folder"></i>Variables</a>
+								<ul>
+									<li>
+										<a href="forum.html">Qualitative</a>
+									</li>
+									
+									<li>
+								<a href="#">Quantitative</a>
+								<ul>
+									
+									<!------------------------------------------------------------------------>
+									<li>
+										<a href="#"><i class="fa fa-fw fa-folder-open"></i>fixe</a>
+												<ul>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i> Discrète</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i> Continue</a>
+													</li>
+												</ul>
+			
+									</li>
+									
+									<!------------------------------------------------------------------------>
+									<li>
+										<a href="#"><i class="fa fa-fw fa-file-text"></i>Aléatoire</a>
+		
+										
+		
+									</li>
+									
+								</ul>
+							</li>
+									<!------------------------------------------------------------------------>
+									<li>
+										<a href="timeline.html">Discret-continu</a>
+									</li>
+								</ul>
+							</li>
+		
+							<li>
+								<a href="#"><i class="fa fa-fw fa-folder"></i>Fonctions</a>
+								<ul>
+								
+								<!------------------------------------------------------------------------>
+								<li>
+								<a href="#">Solveur</a>
+								<ul>
+									
+									<a href="#"><i class="fa fa-fw fa-folder-open"></i>Emplacement</a>
+									<li>
+										
+										
+										<a href="#"><i class="fa fa-fw fa-folder-open"></i>CFD</a>
+												<ul>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>6Sigma</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>CFD-CADalyzer</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>PAM-FLOW</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>ACE+Suite</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>UH3D</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>Acusolve</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>Cast3M</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>CFX</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>Fluent</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>Icepak </a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>Code Saturne</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>Code Ananas</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>Gerris</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>Gerris</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>Gerris</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>FINE/Open</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>FINE/Turbo</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>FINE/Marine</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>OpenFOAM</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>StarCCM+</a>
+													</li>
+												</ul>
+									</li>
+									
+									
+										<li>
+										<a href="#"><i class="fa fa-fw fa-folder-open"></i>Mécanique des structure</a>
+												<ul>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>1</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>2</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>3</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>4</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>5</a>
+													</li>
+											
+												</ul>
+									</li>
+									
+									
+								</ul>
+							</li>	
+									<li>
+								<a href="#">Objectifs</a>
+								<ul>
+									<li>
+										<a href="#"><i class="fa fa-fw fa-folder-open"></i>1</a>
+												<ul>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>2</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>3</a>
+													</li>
+												</ul>
+									</li>
+									
+								</ul>
+							</li>
+									
+									<li>
+								<a href="#">Contraintes</a>
+								<ul>
+									<li>
+										<a href="#"><i class="fa fa-fw fa-folder-open"></i>Attributs</a>
+												<ul>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>Borne inférieure</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>Borne supérieur</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i>Constante</a>
+													</li>
+												</ul>
+									</li>
+									
+								</ul>
+							</li>
+							
+								</ul>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-lg fa-fw fa-file"></i>Cas de chargement</a>
+								<ul>
+									<li>
+										<a href="forum.html">Nom</a>
+									</li>
+									<li>
+										<a href="profile.html">Phénoménologie</a>
+									</li>
+									<li>
+										<a href="timeline.html">Solveur</a>
+									</li>
+									<li>
+										<a href="timeline.html">Paramètres</a>
+									</li>
+									<li>
+										<a href="timeline.html">Fonction</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li>
+								<a href="#"><i class="fa fa-lg fa-fw fa-file"></i>domaine</a>
+								<ul>
+									<li>
+										<a href="forum.html">Forum Layout</a>
+									</li>
+									<li>
+										<a href="profile.html">Profile</a>
+									</li>
+									<li>
+										<a href="timeline.html">Timeline</a>
+									</li>
+								</ul>
+							</li>
+							
+							
+						</ul>
+					</li>
+					
+				</ul>
+			</nav>
+			<span class="minifyme" data-action="minifyMenu"> 
+				<i class="fa fa-arrow-circle-left hit"></i> 
+			</span>
+
+		</aside>
+		<!-- END NAVIGATION -->
+
+		<!-- MAIN PANEL -->
+		<div id="main" role="main">
+
+			
+			<!-- RIBBON -->
+			<div id="ribbon">
+
+				<span class="ribbon-button-alignment"> 
+					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
+						<i class="fa fa-refresh"></i>
+					</span> 
+				</span>
+
+				<!-- breadcrumb -->
+				<ol class="breadcrumb">
+					<li>Home</li><li>Mes études</li>
+				</ol>
+				<!-- end breadcrumb -->
+
+				<!-- You can also add more buttons to the
+				ribbon for further usability
+
+				Example below:
+
+				<span class="ribbon-button-alignment pull-right">
+				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
+				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
+				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
+				</span> -->
+
+			</div>
+			<!-- END RIBBON -->
+
+			<!-- MAIN CONTENT -->
+		
+			<div id="content">
+					<div class="row">
+					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-12">
+						<h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Mes études <span>> Mon étude</span></h1>
+					</div>
+				</div>
+
+				<!-- widget grid -->
+				<section id="widget-grid" class="">
+				
+					<!-- row -->
+					<div class="row">
+						
+						<!-- NEW WIDGET START -->
+						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		
+	
+<div class="well">
+
+											<div class="btn-group btn-group-justified">
+												<a class="btn btn-primary" href="javascript:void(0);">Nouvelle étude</a>
+												<a class="btn btn-primary" href="javascript:void(0);">Importer</a>
+												<a class="btn btn-primary" href="javascript:void(0);">Exporter</a>
+												<a class="btn btn-primary" href="javascript:void(0);">Ouvrir une étude</a>
+												<a class="btn btn-primary" href="javascript:void(0);">Sauvegarder</a>
+												<a class="btn btn-primary" href="javascript:void(0);">Sauvegarder</a>
+												<a class="btn btn-primary" href="javascript:void(0);">Fermer</a>
+												<a class="btn btn-primary" href="javascript:void(0);">Supprimer</a>
+											</div>
+
+										</div>
+  <!--div id="mode-group" class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary">
+      <input type="radio" name="mode" id="option1"> Nouvelle étude
+    </label>
+	
+	<label class="btn btn-primary">
+      <input type="radio" name="mode" id="option2"> Importer
+    </label>
+	
+	<label class="btn btn-primary">
+      <input type="radio" name="mode" id="option2"> Exporter
+    </label>
+    <label class="btn btn-primary">
+      <input type="radio" name="mode" id="option2"> Ouvrir une étude
+    </label>
+	
+	<label class="btn btn-primary">
+      <input type="radio" name="mode" id="option2"> Sauvegarder
+    </label>
+	
+	<label class="btn btn-primary">
+      <input type="radio" name="mode" id="option2"> Fermer
+    </label>
+	
+	<label class="btn btn-primary">
+      <input type="radio" name="mode" id="option2"> Supprimer
+    </label>
+	
+  </div-->
+ 
+ <p></p>
+								
+	<div class="jarviswidget jarviswidget-sortable jarviswidget-color-darken" id="wid-id-0" style="position: relative; opacity: 1;" role="widget" data-widget-attstyle="jarviswidget-color-darken">
+	
+	<header role="heading"><div class="jarviswidget-ctrls" role="menu">
+	<a href="javascript:void(0);" class="button-icon jarviswidget-edit-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Edit Title" style="display: block;"><i class="fa fa-cog"></i></a> <a href="#" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse" style="display: block;"><i class="fa fa-minus"></i></a> 
+	<a href="javascript:void(0);" class="button-icon jarviswidget-fullscreen-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Fullscreen"><i class="fa fa-expand"></i></a> 
+	<a href="javascript:void(0);" class="button-icon jarviswidget-delete-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete" style="display: block;"><i class="fa fa-times"></i></a></div><div class="widget-toolbar" role="menu">
+	<a data-toggle="dropdown" class="dropdown-toggle color-box selector" href="javascript:void(0);"></a><ul class="dropdown-menu arrow-box-up-right color-select pull-right"><li><span class="bg-color-green" data-widget-setstyle="jarviswidget-color-green" rel="tooltip" data-placement="left" data-original-title="Green Grass"></span></li>
+	<li><span class="bg-color-greenDark" data-widget-setstyle="jarviswidget-color-greenDark" rel="tooltip" data-placement="top" data-original-title="Dark Green"></span></li><li><span class="bg-color-greenLight" data-widget-setstyle="jarviswidget-color-greenLight" rel="tooltip" data-placement="top" data-original-title="Light Green"></span></li>
+	<li><span class="bg-color-purple" data-widget-setstyle="jarviswidget-color-purple" rel="tooltip" data-placement="top" data-original-title="Purple"></span></li><li><span class="bg-color-magenta" data-widget-setstyle="jarviswidget-color-magenta" rel="tooltip" data-placement="top" data-original-title="Magenta"></span></li><li><span class="bg-color-pink" data-widget-setstyle="jarviswidget-color-pink" rel="tooltip" data-placement="right" data-original-title="Pink"></span></li><li><span class="bg-color-pinkDark" data-widget-setstyle="jarviswidget-color-pinkDark" rel="tooltip" data-placement="left" data-original-title="Fade Pink"></span></li><li><span class="bg-color-blueLight" data-widget-setstyle="jarviswidget-color-blueLight" rel="tooltip" data-placement="top" data-original-title="Light Blue"></span></li><li><span class="bg-color-teal" data-widget-setstyle="jarviswidget-color-teal" rel="tooltip" data-placement="top" data-original-title="Teal"></span></li><li><span class="bg-color-blue" data-widget-setstyle="jarviswidget-color-blue" rel="tooltip" data-placement="top" data-original-title="Ocean Blue"></span></li><li><span class="bg-color-blueDark" data-widget-setstyle="jarviswidget-color-blueDark" rel="tooltip" data-placement="top" data-original-title="Night Sky"></span></li><li><span class="bg-color-darken" data-widget-setstyle="jarviswidget-color-darken" rel="tooltip" data-placement="right" data-original-title="Night"></span></li><li><span class="bg-color-yellow" data-widget-setstyle="jarviswidget-color-yellow" rel="tooltip" data-placement="left" data-original-title="Day Light"></span></li><li><span class="bg-color-orange" data-widget-setstyle="jarviswidget-color-orange" rel="tooltip" data-placement="bottom" data-original-title="Orange"></span></li><li><span class="bg-color-orangeDark" data-widget-setstyle="jarviswidget-color-orangeDark" rel="tooltip" data-placement="bottom" data-original-title="Dark Orange"></span></li><li><span class="bg-color-red" data-widget-setstyle="jarviswidget-color-red" rel="tooltip" data-placement="bottom" data-original-title="Red Rose"></span></li><li><span class="bg-color-redLight" data-widget-setstyle="jarviswidget-color-redLight" rel="tooltip" data-placement="bottom" data-original-title="Light Red"></span></li><li><span class="bg-color-white" data-widget-setstyle="jarviswidget-color-white" rel="tooltip" data-placement="right" data-original-title="Purity"></span></li><li><a href="javascript:void(0);" class="jarviswidget-remove-colors" data-widget-setstyle="" rel="tooltip" data-placement="bottom" data-original-title="Reset widget color to default">Remove</a></li></ul></div>
+
+		</header>
+
+
+<ul class="nav nav-pills">
+   
+   <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+         Fichier <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+         <li><a href="#">Nouveau</a></li>
+         <li><a href="#">Ouvrir</a></li>
+         <li><a href="#">Enregister</a></li>
+		  <li><a href="#">Enregister sous...</a></li>
+		   <li><a href="#">Enregister une copie...</a></li>
+         <li class="divider"></li>
+         <li><a href="#">Imprimer</a></li>
+		 <li><a href="#">Imprimer immédiatement</a></li>
+      </ul>
+   </li>
+   
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+         Edition <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+         <li><a href="#">Annuler</a></li>
+         <li><a href="#">Rétablir</a></li>
+         <li class="divider"></li>
+         <li><a href="#">Couper</a></li>
+		 <li><a href="#">Coupier</a></li>
+		 <li><a href="#">Coller</a></li>
+		  <li><a href="#">Supprimer</a></li>
+		   <li><a href="#">Selectionner tout</a></li>
+      </ul>
+   </li>
+   
+   <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+         Affichage <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+         <li><a href="#">Texte de droite à gauche</a></li>
+         <li><a href="#">Texte de gauche à droite</a></li>
+         <li class="divider"></li>
+         <li><a href="#">Zoom</a></li>
+      </ul>
+   </li>
+   
+   <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+         Recherche <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+         <li><a href="#">Rechercher...</a></li>
+         <li><a href="#">Recherche suivante</a></li>
+		 <li><a href="#">Recherche Précedente</a></li>
+		  <li><a href="#">Remplacer</a></li>
+      </ul>
+   </li>
+  
+   <li><a href="#">Partager</a></li>
+   
+     <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+         Aide <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+         <li><a href="#">Aide</a></li>
+         <li><a href="#">A propos</a></li>
+		 <li><a href="#">Assistance</a></li>
+      </ul>
+   </li>
+   <li><a href="#">Exécuter</a></li>
+  
+   
+</ul>
+<section id=demo>
+					
+  <form style="position: relative; margin-top:.5em;">
+		<?php  
+			include("editeur.html")
+		?>
+ </form>
+  <script>
+    var editor = CodeMirror.fromTextArea(document.getElementById("demotext"), {
+      lineNumbers: true,
+      mode: "text/html",
+      matchBrackets: true
+    });
+  </script>
+  
+  <!-- Terminal-->			
+	<div class="input-group input-group-lg">
+    
+    <textarea class="form-control" cols="180" rows="5" placeholder="Message" style="height: auto; color: white; background:#3A3333" id="MessageBox">root@user:/#</textarea>
+</div>	 <!-- fin Terminal-->	
+
+    <!-- Bouttons de controle-->	
+  
+  <div class="well">
+
+											<div class="btn-group btn-group-justified">
+												<a class="btn btn-default" href="javascript:void(0);">Vérifier</a>
+												<a class="btn btn-default" href="javascript:void(0);">Exécuter</a>
+												<a class="btn btn-default" href="javascript:void(0);">Exporter</a>
+												<a class="btn btn-default" href="javascript:void(0);">Envoyer</a>
+											</div>
+
+										</div>
+
+</section>
+						
+</div>
+
+	
+								<!-- end widget div -->
+								</article>
+						<!-- WIDGET END -->
+				</div>
+				</section>
+							</div>
+							<!-- end widget -->
+</div>	
+		<!-- PAGE FOOTER -->
+		<div class="page-footer">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<span class="txt-color-white">Web Service version 1.0 - Copyright © 2014</span>
+				</div>
+
+				<div class="col-xs-6 col-sm-6 text-right hidden-xs">
+					<div class="txt-color-white inline-block">
+						<i class="txt-color-blueLight hidden-mobile">Dernière activité sur le compte <i class="fa fa-clock-o"></i> <strong>Il ya 15 minutes&nbsp;</strong> </i>
+						<div class="btn-group dropup">
+							<button class="btn btn-xs dropdown-toggle bg-color-blue txt-color-white" data-toggle="dropdown">
+								<i class="fa fa-link"></i> <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu pull-right text-left">
+								<li>
+									<div class="padding-5">
+										<p class="txt-color-darken font-sm no-margin">Download Progress</p>
+										<div class="progress progress-micro no-margin">
+											<div class="progress-bar progress-bar-success" style="width: 50%;"></div>
+										</div>
+									</div>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<div class="padding-5">
+										<p class="txt-color-darken font-sm no-margin">Server Load</p>
+										<div class="progress progress-micro no-margin">
+											<div class="progress-bar progress-bar-success" style="width: 20%;"></div>
+										</div>
+									</div>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<div class="padding-5">
+										<p class="txt-color-darken font-sm no-margin">Memory Load <span class="text-danger">*critical*</span></p>
+										<div class="progress progress-micro no-margin">
+											<div class="progress-bar progress-bar-danger" style="width: 70%;"></div>
+										</div>
+									</div>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<div class="padding-5">
+										<button class="btn btn-block btn-default">refresh</button>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END PAGE FOOTER -->
+
+		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
+		Note: These tiles are completely responsive,
+		you can add as many as you like
+		-->
+		<div id="shortcut">
+			<ul>
+				<li>
+					<a href="#inbox.html" class="jarvismetro-tile big-cubes bg-color-blue"> <span class="iconbox"> <i class="fa fa-envelope fa-4x"></i> <span>Mail <span class="label pull-right bg-color-darken">14</span></span> </span> </a>
+				</li>
+				<li>
+					<a href="#calendar.html" class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>Calendar</span> </span> </a>
+				</li>
+				<li>
+					<a href="#gmap-xml.html" class="jarvismetro-tile big-cubes bg-color-purple"> <span class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>Maps</span> </span> </a>
+				</li>
+				<li>
+					<a href="#invoice.html" class="jarvismetro-tile big-cubes bg-color-blueDark"> <span class="iconbox"> <i class="fa fa-book fa-4x"></i> <span>Invoice <span class="label pull-right bg-color-darken">99</span></span> </span> </a>
+				</li>
+				<li>
+					<a href="#gallery.html" class="jarvismetro-tile big-cubes bg-color-greenLight"> <span class="iconbox"> <i class="fa fa-picture-o fa-4x"></i> <span>Gallery </span> </span> </a>
+				</li>
+				<li>
+					<a href="javascript:void(0);" class="jarvismetro-tile big-cubes selected bg-color-pinkDark"> <span class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>My Profile </span> </span> </a>
+				</li>
+			</ul>
+		</div>
+		<!-- END SHORTCUT AREA -->
+
+		<!--================================================== -->
+
+		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
+
+		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script>
+			if (!window.jQuery) {
+				document.write('<script src="js/libs/jquery-2.0.2.min.js"><\/script>');
+			}
+		</script>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+		<script>
+			if (!window.jQuery.ui) {
+				document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+			}
+		</script>
+
+		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events
+		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> -->
+
+		<!-- BOOTSTRAP JS -->
+		<script src="js/bootstrap/bootstrap.min.js"></script>
+
+		<!-- CUSTOM NOTIFICATION -->
+		<script src="js/notification/SmartNotification.min.js"></script>
+
+		<!-- JARVIS WIDGETS -->
+		<script src="js/smartwidgets/jarvis.widget.min.js"></script>
+
+		<!-- EASY PIE CHARTS -->
+		<script src="js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+
+		<!-- SPARKLINES -->
+		<script src="js/plugin/sparkline/jquery.sparkline.min.js"></script>
+
+		<!-- JQUERY VALIDATE -->
+		<script src="js/plugin/jquery-validate/jquery.validate.min.js"></script>
+
+		<!-- JQUERY MASKED INPUT -->
+		<script src="js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+
+		<!-- JQUERY SELECT2 INPUT -->
+		<script src="js/plugin/select2/select2.min.js"></script>
+
+		<!-- JQUERY UI + Bootstrap Slider -->
+		<script src="js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+
+		<!-- browser msie issue fix -->
+		<script src="js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+
+		<!-- FastClick: For mobile devices -->
+		<script src="js/plugin/fastclick/fastclick.min.js"></script>
+
+		<!--[if IE 8]>
+
+		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+
+		<![endif]-->
+
+		<!-- Demo purpose only -->
+		<script src="js/demo.min.js"></script>
+
+		<!-- MAIN APP JS FILE -->
+		<script src="js/app.min.js"></script>
+
+		<!-- PAGE RELATED PLUGIN(S) -->
+		<script src="js/plugin/ckeditor/ckeditor.js"></script>
+
+		
+
+		<script type="text/javascript">
+		
+		// DO NOT REMOVE : GLOBAL FUNCTIONS!
+		
+		$(document).ready(function() {
+			
+			CKEDITOR.replace( 'ckeditor', { height: '380px', startupFocus : true} );
+		
+		})
+
+		</script>
+
+		<!-- Your GOOGLE ANALYTICS CODE Below -->
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+				_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+				_gaq.push(['_trackPageview']);
+			
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+
+	</body>
+
+</html>

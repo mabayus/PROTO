@@ -1,0 +1,40 @@
+<script LANGUAGE="JavaScript">
+	function redirect(path) {
+		document.location.href = path;
+	}
+</script>
+
+<div data-role="panel" id="navpanel" data-theme="f"
+	data-display="overlay" data-position="left">
+	<div data-role="controlgroup" data-corners="false">
+		<ul data-role="listview">
+			<li><button
+					onClick="redirect('/upload_file/')"
+					data-icon="arrow-r" data-iconpos="right">Algorithme</button></li>
+			<li><button
+					onClick="redirect('/discribe_probleme/')"
+					data-icon="arrow-r" data-iconpos="right">Problème</button></li>
+			
+				<li><button
+						onClick="redirect('<%=request.getContextPath()%>/consolidation')"
+						data-icon="arrow-r" data-iconpos="right">Servers Consolidation</button></li>
+		
+			<li><button
+					onClick="redirect('<%=request.getContextPath()%>/network')"
+					data-icon="arrow-r" data-iconpos="right">Network</button></li>
+			<li><button
+					onClick="redirect('<%=request.getContextPath()%>/storage')"
+					data-icon="arrow-r" data-iconpos="right">Storage</button></li>
+			<li><button
+					onClick="redirect('/index/')"
+					data-icon="arrow-r" data-iconpos="right">Disconnect</button></li>
+		</ul>
+	</div>
+</div>
+
+<div id="header" data-role="header" data-theme="b" data-position="fixed">
+	<h1></h1>
+	<p></p>
+	<a id="home-button" data-icon="home" class="ui-btn-left"
+		style="margin-top: 10px;" href="#navpanel">Home</a>
+</div>

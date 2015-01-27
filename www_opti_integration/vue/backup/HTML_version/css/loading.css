@@ -1,0 +1,210 @@
+﻿
+#loadingide {
+    background: url("images/ide_loading_bg_pattern.png") repeat scroll 0 0 #ddd;
+    font-style: normal;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 200000;
+}
+#loadingide .header {
+    background: url("images/loader_logo.png") no-repeat scroll center top rgba(0, 0, 0, 0);
+    height: 40px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 40px;
+}
+#loadingide .loading-progress {
+    color: #4a8532;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 16px;
+    height: 37px;
+    margin: 0 auto;
+    position: relative;
+    text-shadow: 0 1px 0 #eee;
+    top: 35%;
+}
+#progress-msg {
+    margin: 0 auto;
+    position: relative;
+    width: 190px;
+}
+#progress-msg span {
+    left: 191px;
+    position: absolute;
+    top: 0;
+}
+#loadingide .loading-msg {
+    color: #909090;
+}
+#loadingide .loading-seperator {
+    background: url("images/footer-line.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+    height: 12px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    width: 180px;
+}
+#loadingide .footer {
+    bottom: 10px;
+    font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif;
+    font-size: 11px;
+    margin: 0;
+    position: absolute;
+    right: 10px;
+    text-align: right;
+    text-shadow: 0 1px 0 #eee;
+}
+#loadingide .footer, .footer > a:link, a:visited, a:active {
+    color: #909090;
+    text-decoration: none;
+}
+#loadingide .footer > a:hover {
+    color: #3d833c;
+    text-decoration: underline;
+}
+#loadingide #dots {
+    display: inline-block;
+    text-align: left;
+    width: 30px;
+}
+#errorMessage {
+    background: none repeat scroll 0 0 rgba(255, 0, 0, 0.04);
+    border-radius: 10px;
+    color: #c41117;
+    display: block;
+    font-size: 15px;
+    line-height: 25px;
+    margin: 50px auto;
+    padding: 10px;
+    text-align: center;
+    text-shadow: 0 1px 0 #eee;
+    width: 560px;
+}
+#errorMessage a {
+    color: #720c10;
+    font-size: 15px;
+    text-decoration: underline;
+}
+.stickynote {
+    bottom: 70px;
+    position: absolute;
+    right: 50px;
+    transform: rotate(2deg);
+    z-index: 10000000;
+}
+.stickynote .paper {
+    background: -moz-linear-gradient(center bottom , rgb(255, 255, 204) 9%, rgb(255, 255, 242) 100%) repeat scroll 0 0 #ffffcc;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
+    color: rgb(122, 82, 22);
+    font-family: Tahoma;
+    font-size: 13px;
+    padding: 25px 20px 10px;
+    text-align: left;
+    width: 270px;
+}
+.stickynote a {
+    color: #4a8532;
+}
+.stickynote .tape {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-left: 1px dashed rgba(0, 0, 0, 0.1);
+    border-right: 1px dashed rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 1px 0 #cccccc;
+    height: 35px;
+    position: absolute;
+    right: 80px;
+    top: -15px;
+    transform: rotate(-2deg) skew(0deg, 0deg) translate(0%, -5px);
+    width: 130px;
+}
+.stickynote .left-shadow {
+    bottom: -5px;
+    box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    height: 140px;
+    left: -12px;
+    position: absolute;
+    transform: scale(1) rotate(274deg) translate(20px, 25px) skew(9deg, 0deg);
+    width: 140px;
+    z-index: -6;
+}
+.stickynote .right-shadow {
+    bottom: -13px;
+    box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    height: 140px;
+    position: absolute;
+    right: -4px;
+    transform: scale(1) rotate(184deg) translate(20px, 25px) skew(9deg, 0deg);
+    width: 140px;
+    z-index: -6;
+}
+@keyframes animate-stripes {
+100% {
+    background-position: 0 0;
+}
+0% {
+    background-position: 36px 0;
+}
+}
+.ui-progress-bar {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+    border-radius: 25px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5) inset, 0 1px 0 0 white;
+    height: 19px;
+    margin: 0 auto;
+    padding-right: 2px;
+    position: relative;
+    top: 40px;
+    width: 300px;
+}
+.ui-progress-bar.blue .ui-progress {
+    background-color: #339bb9 !important;
+    border: 1px solid #287a91;
+}
+.ui-progress-bar.error .ui-progress {
+    background-color: #c43c35 !important;
+    border: 1px solid #9c302a;
+}
+.ui-progress-bar.warning .ui-progress {
+    background-color: #d9b31a !important;
+    border: 1px solid #ab8d15;
+}
+.ui-progress-bar.success .ui-progress {
+    background-color: #57a957 !important;
+    border: 1px solid #458845;
+}
+.ui-progress-bar.transition .ui-progress {
+    transition: background-color 0.5s ease-in 0s, border-color 1.5s ease-out 0s, box-shadow 1.5s ease-out 0s;
+}
+.ui-progress-bar .ui-progress {
+    animation: 2s linear 0s normal none infinite animate-stripes;
+    background: -moz-repeating-linear-gradient(left top -30deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.17) 15px, rgba(255, 255, 255, 0) 15px, rgba(255, 255, 255, 0) 30px) repeat scroll 0 0%, linear-gradient(rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%) repeat scroll 0 0%, none repeat scroll 0 0 #4a8532;
+    border: 1px solid #4c8932;
+    border-radius: 25px;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.4) inset, 0 -1px 1px rgba(0, 0, 0, 0.2) inset;
+    display: block;
+    height: 17px;
+    overflow: hidden;
+    position: relative;
+}
+.ui-progress-bar .ui-progress span.ui-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Arial;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 16px;
+    padding-right: 12px;
+    position: absolute;
+    right: 0;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+}
+.ui-progress-bar .ui-progress span.ui-label b {
+    font-weight: bold;
+}

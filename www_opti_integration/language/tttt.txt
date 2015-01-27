@@ -1,0 +1,34 @@
+begin clause variables
+	discrete a in (12.3,2,23,34) is thickness ;
+	discrete b in (23.4,67) is thickness ;
+	discrete c in (2222,6222.7,67989,8889778,5444) is thickness ;
+	vector V(v1,v2,v3) is discrete in (1,2,3);
+	vector V1(v6,v9,v10) is discrete in (1,2,3);
+	continuous d in [1,2];
+	continuous x in [4,12];
+	ZE,ZD, GGG are discrete in (3,6.7, 8.9)
+	
+end clause
+
+begin clause function
+	external function f input (as,lx1,z) outpuT (continu s, discret p);
+	f (x,c,v) = a*s + b+ c;
+end clause function
+
+begin clause objective
+	min var ;
+	max f(x,y,z);
+end clause objective
+
+begin clause constraint
+	f (a,c,b) > 2;
+	f in [2,4.5];
+end clause constraint
+
+begin clause options
+	optimizer policy quality_of_result ;
+end clause
+
+begin clause options
+	optimizer policy quality_of_result ;
+end clause

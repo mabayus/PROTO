@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="/static/css/reset.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="/static/css/style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="/static/css/grid.css" type="text/css" media="screen"> 
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>  
+	<script src="/static/js/jquery-1.6.3.min.js" type="text/javascript"></script>
+	<script src="/static/js/cufon-yui.js" type="text/javascript"></script>
+	<script src="/static/js/cufon-replace.js" type="text/javascript"></script>
+	<script src="/static/js/PT_Sans_400.font.js" type="text/javascript"></script>
+	<script src="/static/js/PT_Sans_italic_400.font.js" type="text/javascript"></script> 
+	<script src="/static/js/Satisfy_400.font.js" type="text/javascript"></script>
+	<script src="/static/js/NewsGoth_400.font.js" type="text/javascript"></script>
+	<script src="/static/js/FF-cash.js" type="text/javascript"></script> 
+	<script src="/static/js/script.js" type="text/javascript"></script>  
+	<script src="/static/js/tms-0.3.js" type="text/javascript"></script>
+	<script src="/static/js/tms_presets.js" type="text/javascript"></script>
+	<script src="/static/js/jquery.easing.1.3.js" type="text/javascript"></script>	 
+	<script src="/static/js/easyTooltip.js" type="text/javascript"></script>
+	<!--[if lt IE 7]>
+	<div style=' clear: both; text-align:center; position: relative;'>
+		<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+			<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+		</a>
+	</div>
+	<![endif]-->
+	<!--[if lt IE 9]>
+   		<script type="text/javascript" src="/static/js/html5.js"></script>
+	<![endif]-->
+</head>
+<body id="page1">
+	<div class="extra">
+<!--==============================header=================================-->
+		<header>
+			<div class="menu-row">
+				<div class="main">
+					<div class="container_12">
+						<div class="grid_12">
+							<nav class="fleft">
+								<ul class="services-menu">
+									<li class="m1"><a href="index.html"></a></li>
+									
+									<li class="m3"><a href="#"></a></li>
+								</ul>
+							</nav>
+							<nav class="fright">
+								<ul class="main-menu">
+									<li class="active"><a href="index.html">nouveau compte</a></li>
+									<li><a href="about.html">uploading</a></li>
+									<li><a href="gallery.html">deconnexion</a></li>
+									<li><a href="services.html"></a></li>
+									<li><a href="contacts.html"></a></li>
+								</ul>
+							</nav>
+							<div class="clear"></div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<div class="header-row"><div class="ic"></div>
+				<div class="main">
+					<h1>
+						<a href="index.html">IRT SystemX</a>
+						<em>accelerateur de la transformation numerique</em>
+						
+					</h1> 
+					
+						<div class="" alig= "center" enctype="multipart/form-data">								
+							{% include "Proto1/vue/upload_algo.html" %}					
+						</div>
+					
+					<div class="container_12">
+						
+						
+					</div>				   
+				</div>
+			</div>
+			
+		</header>
+		
+<!--==============================content================================-->
+	
+<!--==============================footer=================================-->
+	<footer>
+		<div class="footer-bg">
+			<div class="main">
+				<div class="container_12">
+					<div class="wrapper">
+						<div class="grid_12">
+							<div class="wrapper">
+								<span class="footer-text"> Website Template by <a href="#" target="_blank" rel="nofollow">georges MPOUANS</span>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script type="text/javascript"> Cufon.now(); </script>
+	<script type="text/javascript">
+		$(window).load(function() {
+			$('.slider')._TMS({
+				duration:800,
+				easing:'easeOutQuad',
+				preset:'simpleFade',
+				slideshow:7000,
+				banners:false,
+				pauseOnHover:true,
+				pagination:'.pagination',
+				pagNums:false
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,403 @@
+﻿
+HTML {
+    background: none repeat scroll 0 0 #e8e8e8;
+    overflow: hidden;
+}
+BODY {
+    background-color: #fefefe;
+    color: #222222;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+.ace_editor {
+}
+.ace_editor .ace_gutter {
+}
+.noscript {
+    display: none;
+}
+.strong {
+    font-weight: bold;
+}
+.cut .item {
+    opacity: 0.5;
+}
+#logo {
+    background: url("images/logo.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: block;
+    height: 26px;
+    position: absolute;
+    right: 0;
+    text-indent: -800em;
+    top: 0;
+    width: 186px;
+}
+.headerMenuBar {
+    padding-right: 190px;
+}
+.alertMsg {
+    color: #333333;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+}
+#loadscreen {
+    background: none repeat scroll 0 0 white;
+    bottom: 0;
+    color: #666;
+    left: 0;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 100;
+}
+.bk-window-cover.loader {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 9999999;
+}
+.loaderContent {
+    margin: 10% auto 0;
+    width: 350px;
+}
+.loaderContent .loaderTitle {
+    color: #ced4d6;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 2px 2px #000000;
+}
+.loaderContent .loaderBg {
+    background: url("images/loader-bg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 27px;
+    margin-top: 15px;
+    padding: 14px 18px 0;
+    width: 314px;
+}
+.loaderContent .loaderIndicator {
+    background-image: -moz-linear-gradient(center bottom , rgb(243, 132, 6) 0%, rgb(255, 165, 54) 100%);
+    border-radius: 10px;
+    border-top: 1px solid #ffbc6d;
+    box-shadow: 0 3px 5px 0 #000000;
+    height: 11px;
+    margin: 0 auto;
+    min-width: 4%;
+    width: 4%;
+}
+.draganddrop {
+    background-color: rgba(255, 255, 255, 0);
+    color: #000;
+    display: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    transition: background-color 0.25s ease-out 0s;
+    width: 100%;
+    z-index: 99999;
+}
+.draganddrop.over {
+    background-color: rgba(255, 255, 255, 0.5);
+    display: block;
+}
+.draganddrop > span {
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 16px 8px;
+    position: relative;
+    top: 150px;
+    transition: background-color 0.25s ease-out 0s;
+}
+.draganddrop.over > span {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+.relative {
+    position: relative;
+}
+.dockcol, .hboxdockpanel {
+    background: -moz-linear-gradient(center bottom , #202020 0%, #2f2f2f 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.dockcol .expand-panel-bg {
+    background: -moz-linear-gradient(center bottom , #202020 0%, #2f2f2f 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: -3px;
+    top: 0;
+}
+.dockcol .ace_scroller {
+    border-radius: 0;
+}
+.dockcol .basic {
+}
+.dockcol .basic .expand-panel-bg {
+    background-image: -moz-linear-gradient(center bottom , rgb(50, 51, 54) 0%, rgb(68, 69, 72) 100%);
+    right: -3px;
+}
+.dockcol .basic .hbox {
+}
+.text.interactive_output {
+    border-top: 1px solid #999;
+    color: #000;
+    font-family: menlo,courier new,fixed,swiss,sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    overflow: hidden;
+    padding: 5px 10px;
+}
+.text.interactive_output .output_section {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 5px 0;
+}
+.text.interactive_output .prompt {
+    color: #0080ff;
+}
+.text.interactive_output .xmlhl {
+    color: green;
+    font-weight: bold;
+}
+.interactive_output .error {
+    color: red;
+    font-weight: bold;
+}
+.unselectable {
+    -moz-user-select: none;
+}
+.selectable {
+    -moz-user-select: text;
+}
+.ace_content {
+    z-index: 0;
+}
+.signin_options {
+    margin: 0;
+    text-align: right;
+}
+.github-signin {
+    background: url("images/signin_github.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    float: right;
+    height: 24px;
+    margin-left: 6px;
+    margin-top: -5px;
+    width: 26px;
+}
+.github-signin.btn-over {
+    background-position: 0 -24px;
+}
+.bitbucket-signin {
+    background: url("images/signin_bitbucket.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    float: right;
+    height: 24px;
+    margin-left: 6px;
+    margin-top: -5px;
+    width: 26px;
+}
+.bitbucket-signin.btn-over {
+    background-position: 0 -24px;
+}
+.facebook-signin {
+    background: url("images/signin_facebook.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    float: right;
+    height: 24px;
+    margin-left: 6px;
+    margin-top: -5px;
+    width: 26px;
+}
+.facebook-signin.btn-over {
+    background-position: 0 -24px;
+}
+.google-signin {
+    background: url("images/signin_google.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    float: right;
+    height: 24px;
+    margin-left: 6px;
+    margin-top: -5px;
+    width: 26px;
+}
+.google-signin.btn-over {
+    background-position: 0 -24px;
+}
+.twitter-signin {
+    background: url("images/signin_twitter.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    float: right;
+    height: 24px;
+    margin-left: 6px;
+    margin-top: -5px;
+    width: 26px;
+}
+.twitter-signin.btn-over {
+    background-position: 0 -24px;
+}
+@keyframes loading-spinner {
+0%, 8.32% {
+    background-position: 0 0;
+}
+8.33%, 16.65% {
+    background-position: -15px 0;
+}
+16.66%, 24.99% {
+    background-position: -30px 0;
+}
+25%, 33.32% {
+    background-position: -45px 0;
+}
+33.33%, 41.65% {
+    background-position: -60px 0;
+}
+41.66%, 49.99% {
+    background-position: -75px 0;
+}
+50%, 58.32% {
+    background-position: -90px 0;
+}
+58.33%, 66.65% {
+    background-position: -105px 0;
+}
+66.66%, 74.99% {
+    background-position: -120px 0;
+}
+75%, 83.32% {
+    background-position: -135px 0;
+}
+83.33%, 91.65% {
+    background-position: -150px 0;
+}
+91.66%, 99.99% {
+    background-position: -165px 0;
+}
+}
+@keyframes loading-spinner {
+0%, 8.32% {
+    background-position: 0 0;
+}
+8.33%, 16.65% {
+    background-position: -15px 0;
+}
+16.66%, 24.99% {
+    background-position: -30px 0;
+}
+25%, 33.32% {
+    background-position: -45px 0;
+}
+33.33%, 41.65% {
+    background-position: -60px 0;
+}
+41.66%, 49.99% {
+    background-position: -75px 0;
+}
+50%, 58.32% {
+    background-position: -90px 0;
+}
+58.33%, 66.65% {
+    background-position: -105px 0;
+}
+66.66%, 74.99% {
+    background-position: -120px 0;
+}
+75%, 83.32% {
+    background-position: -135px 0;
+}
+83.33%, 91.65% {
+    background-position: -150px 0;
+}
+91.66%, 99.99% {
+    background-position: -165px 0;
+}
+}
+.editor_tab .btnsesssioncontainer .loading_active .sessiontab_saving, .editor_tab .btnsesssioncontainer .saving_active .sessiontab_saving, .loading-spinner {
+    animation: 1.2s linear 0s normal none infinite loading-spinner;
+    background: url("images/tab-save-spinner-active.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.view-mode-box {
+    background-color: #232e38;
+    color: #e9e9e9;
+    font-size: 13px;
+}
+.c9-logo-view-mode {
+    background: url("images/logo-viewmode.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 35px;
+    width: 210px;
+}
+.blue-label {
+    color: #aec8de;
+}
+.green-label {
+    color: #d2f4c7;
+}
+.yellow-label {
+    color: #ffb017;
+}
+.white-label {
+    color: #e9f8fd;
+    font-size: 13px;
+}
+.nodecor-link {
+    text-decoration: none;
+}
+.needsignin {
+    font-size: 13px;
+}
+.rights-change {
+    font-size: 11px;
+    line-height: 15px;
+    text-align: center;
+}
+@keyframes ball {
+0%, 19.99%, 100% {
+    background-position: 0 0;
+}
+20%, 39.99% {
+    background-position: -30px 0;
+}
+40%, 59.99% {
+    background-position: -60px 0;
+}
+60%, 79.99% {
+    background-position: -90px 0;
+}
+80%, 99.99% {
+    background-position: -120px 0;
+}
+}
+@keyframes ball {
+0%, 19.99%, 100% {
+    background-position: 0 0;
+}
+20%, 39.99% {
+    background-position: -30px 0;
+}
+40%, 59.99% {
+    background-position: -60px 0;
+}
+60%, 79.99% {
+    background-position: -90px 0;
+}
+80%, 99.99% {
+    background-position: -120px 0;
+}
+}
+div.loading-ind {
+    animation: 0.7s linear 0s normal none infinite ball;
+    background: url("images/loading-ind.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 27px;
+    left: 42%;
+    position: absolute;
+    top: 50px;
+    width: 28px;
+    z-index: 0;
+}

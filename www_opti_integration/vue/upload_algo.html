@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Stylish Portfolio Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="/static/css/stylish-portfolio.css" rel="stylesheet">
+    <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>    
+    <!-- Full Page Image Header Area -->
+    <div id="top" class="header">
+        <div class="vert-text">
+        	<form action = "/upload_file/"  method = "POST">{% csrf_token %}
+        	   <p >
+        	   <p>{{message}}</p>
+        		<input type="text" name = "name" value="nom de l'algorithme"><br/><br/>
+        		<input type="text" name = "propio" value="propriétaire"><br/><br/>
+        		<input type="text" name = "depend" value="dépendances"><br/><br/>
+        		<input type="text" name = "name" value="name"><br/><br/>
+        		<input type="file" name = "fichier" value=""><br/><br/>
+        		
+        		<p> 
+        			<!--<a href="#" class="btn btn-default btn-lg" style="margin-left: 30px;"><i>Save</i></a> -->
+        			<input type="submit" name = "name" value="Save"><br/><br/>
+        			<a href="#" class="btn btn-default btn-lg" style="margin-left: 30px;"><i>Reset</i></a>
+        		</p>
+        		
+        	   </p>
+        	</form>	                   
+        </div>
+    </div>
+    <!-- /Full Page Image Header Area -->
+
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">                                                            
+                    <p>Copyright &copy; IRT-SystemX</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /Footer -->
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
+    <script>
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    </script>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    </script>
+    <script>
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    </script>
+
+    
+
+</body>
+
+</html>

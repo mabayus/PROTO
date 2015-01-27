@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Stylish Portfolio Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="/static/css/stylish-portfolio.css" rel="stylesheet">
+    <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    
+
+    <!-- Full Page Image Header Area -->
+    <div id="top" class="header">
+        <div class="vert-text">
+        	<form action="/index/" method = "POST" name="index">{% csrf_token %}
+        	   <p>
+        	   <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        	   <p>{{message}}</p>
+        		<input type="text" name = "login" value="login"><br/><br/>
+        		<input type="password" name = "pwd" value="pasword"><br/><br/>
+        		<a href="#" class="btn btn-default btn-lg" onclick = "soumetre()"><i>Connexion</i></a>
+        		<p>Pas de compte?<a href="/inscription/"><i>inscrivez vous</i></a> maintenant</p>
+        	   </p>
+        	</form>	                   
+        </div>
+    </div>
+    <!-- /Full Page Image Header Area -->
+
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">                                                            
+                    <p>Copyright &copy; IRT-SystemX</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /Footer -->
+
+    <!-- JavaScript -->
+    <script src="/static/js/jquery-1.10.2.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+
+    <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
+    <script>
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    </script>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    </script>
+    <script>
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    </script>
+	<script type="text/javascript" charset="utf-8"></script>			
+			<script>
+				function effacer()
+				{										
+					document.inscription.reset()
+				}
+    			</script>
+</body>
+
+</html>
